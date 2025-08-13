@@ -43,6 +43,18 @@ namespace InternalApi.Controllers
 
         [Authorize]
         [HttpPost]
+        public async Task<IActionResult> GetBySearch(SearchUserModel searchUserModel)
+        {
+            if (searchUserModel == null)
+            {
+                return BadRequest();
+            }
+            var users = await _userService.GetBySearchAsync(searchUserModel);
+            return Ok(users);
+        }
+
+        [Authorize]
+        [HttpPost]
         public async Task<IActionResult> Create(UserModel userModel)
         {
             var result = await _fileHelper.UploadImgAsync(userModel.File);

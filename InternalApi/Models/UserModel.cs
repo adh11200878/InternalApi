@@ -10,4 +10,11 @@
         public IFormFile? File { get; set; }
         public string Img { get; set; } = string.Empty;
     }
+
+    public class SearchUserModel
+    {
+        public string UserName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+    }
+
 }

@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Text;
 using Dapper;
 using InternalApi.Models;
 
@@ -35,6 +36,22 @@ namespace InternalApi.Service
 
             return await _db.QueryFirstOrDefaultAsync<UserModel>(sql, parameters);
         }
+
+        //依據查詢資料
+        public async Task<IEnumerable<UserModel>> GetBySearchAsync(SearchUserModel searchUserModel)
+        {
+            var sql = @"SELECT * 
+            FROM Users 
+            WHERE UserName LIKE '%'+  @UserName + '%'
+            AND Email LIKE '%' + @Email + '%'";
+            var parameters = new
+            {
+                UserName = searchUserModel.UserName,
+                Email = searchUserModel.Email
+            };
+            return await _db.QueryAsync<UserModel>(sql.ToString(), parameters);
+        }
+
 
         // C：新增（含交易）
         private static readonly object _idLock = new object(); //上鎖
