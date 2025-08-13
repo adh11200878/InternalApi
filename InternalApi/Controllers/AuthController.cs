@@ -14,9 +14,9 @@ namespace InternalApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string userName,string password)
+        public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
-            var token = await _authService.Login(userName, password);
+            var token = await _authService.Login(loginRequest.userName, loginRequest.password);
             if(string.IsNullOrEmpty(token))
             {
                 return NotFound();
@@ -27,4 +27,13 @@ namespace InternalApi.Controllers
             }
         }
     }
+
+
+    public class LoginRequest
+    {
+        public string userName { get; set; }
+        public string password { get; set; }
+    }
+
+
 }
