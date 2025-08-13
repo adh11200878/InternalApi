@@ -15,9 +15,9 @@ namespace InternalApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginModel loginRequest)
+        public async Task<IActionResult> Login(LoginModel loginModel)
         {
-            var token = await _authService.Login(loginRequest.userName, loginRequest.password);
+            var token = await _authService.Login(loginModel.userName, loginModel.password);
             if(string.IsNullOrEmpty(token))
             {
                 return NotFound();
