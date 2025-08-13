@@ -1,3 +1,4 @@
+using InternalApi.Models;
 using InternalApi.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,7 @@ namespace InternalApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginRequest loginRequest)
+        public async Task<IActionResult> Login(LoginModel loginRequest)
         {
             var token = await _authService.Login(loginRequest.userName, loginRequest.password);
             if(string.IsNullOrEmpty(token))
@@ -27,13 +28,5 @@ namespace InternalApi.Controllers
             }
         }
     }
-
-
-    public class LoginRequest
-    {
-        public string userName { get; set; }
-        public string password { get; set; }
-    }
-
 
 }
