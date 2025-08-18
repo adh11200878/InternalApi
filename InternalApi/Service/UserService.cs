@@ -89,7 +89,7 @@ namespace InternalApi.Service
                     PassWord = BCrypt.Net.BCrypt.HashPassword(userModel.PassWord),
                     userModel.Email,
                     userModel.Img,
-                    CreatedAt = DateTime.Now
+                    userModel.CreatedAt
                 };
 
                 var sql = @"INSERT INTO Users 
