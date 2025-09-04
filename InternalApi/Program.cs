@@ -25,8 +25,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("cors", p =>
     {
         p.WithOrigins(
-            "http://localhost:5110",        // 本機開發前端（Vue、React）
-            "http://127.0.0.1:5110",        // 本機 IP 開發
+            "http://localhost:5173",        // 本機開發前端（Vue、React）
+            "http://127.0.0.1:5173",        // 本機 IP 開發
             "https://your-frontend.com",    // 正式網域
             "http://192.168.1.100:8080"     // 局域網內指定 IP
         )

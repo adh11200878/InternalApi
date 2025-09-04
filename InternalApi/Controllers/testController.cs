@@ -7,14 +7,12 @@ namespace TESTAPI.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class WeatherForecastController : ControllerBase
+    public class testController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private readonly IDbConnection _connection;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IDbConnection connection)
+        public testController(IDbConnection connection)
         {
-            _logger = logger;
             _connection = connection;
         }
 
