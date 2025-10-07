@@ -38,6 +38,8 @@ pipeline {
             }
         }
 
+    }
+
     post {
         success {
             echo 'Pipeline 成功完成！'
