@@ -42,7 +42,7 @@ namespace TESTAPI.Controllers
         [HttpGet]
         public async Task<string> AAA()
         {
-            return "12345789";
+            return "12";
         }
 
 
